@@ -1,0 +1,27 @@
+{
+  "name": "indian-standards-procurement-ai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a1creator284/indian-standards-procurement-ai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/a1creator284/indian-standards-procurement-ai/issues"
+  },
+  "homepage": "https://github.com/a1creator284/indian-standards-procurement-ai#readme",
+  "devDependencies": {
+    "supabase": "^2.117.0"
+  }
+}
