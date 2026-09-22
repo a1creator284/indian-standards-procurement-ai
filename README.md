@@ -5,7 +5,9 @@
 [![Smart India Hackathon 2026](https://img.shields.io/badge/Smart%20India%20Hackathon-2026-0b5394)](https://www.sih.gov.in/)
 [![Problem Statement](https://img.shields.io/badge/Problem%20Statement-SIH26108-1f6feb)](#smart-india-hackathon-2026--sih26108)
 [![Stack](https://img.shields.io/badge/stack-React%2019%20%C2%B7%20TypeScript%20%C2%B7%20Vite-3178c6)](#technology-stack)
-[![Tests](https://img.shields.io/badge/vitest-53%20tests%20passing-2f9e44)](#testing)
+[![Tests](https://img.shields.io/badge/vitest-54%20tests%20passing-2f9e44)](#testing)
+
+**Live demo:** https://indian-standards-procurement-7madbaymw.vercel.app/
 
 ---
 
@@ -536,7 +538,7 @@ It prints the detected language, the extracted requirements, primary and related
 ## Testing
 
 ```bash
-npm test          # vitest run — 53 tests across 7 files
+npm test          # vitest run — 54 tests across 7 files
 npm run test:watch
 npm run validate  # lint + typecheck + test + build
 ```
@@ -551,7 +553,7 @@ npm run validate  # lint + typecheck + test + build
 | `tests/server/routes.test.ts` | API router: full analysis response, validation, 404 and rate limiting |
 | `tests/ui/app.test.tsx` | jsdom UI flows — navigation, empty states, explorer, PDF upload states, copilot |
 
-Current status on the checked-in code: **53 tests passing (7 files)**, ESLint reports 0 errors (2 `react-refresh` warnings).
+Current status on the checked-in code: **54 tests passing (7 files)**, ESLint reports 0 errors (2 `react-refresh` warnings).
 
 ---
 
