@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "disclaimer": "DEMO DATASET. Certification mappings are indexed as representative records. Applicability labels describe what this demo index records, not a legal determination. Verify with BIS / the relevant Quality Control Order before use."
+  },
+  "certifications": [
+    {
+      "id": "bis-isi",
+      "scheme": "BIS-ISI",
+      "name": "BIS Product Certification (ISI Mark, Scheme-I)",
+      "authority": "Bureau of Indian Standards",
+      "description": "Product certification scheme under which a licensed manufacturer may use the Standard Mark (ISI mark) on products conforming to the relevant Indian Standard. Certain products are brought under compulsory certification through Quality Control Orders.",
+      "url": "https://www.bis.gov.in/"
+    },
+    {
+      "id": "bis-crs",
+      "scheme": "BIS-CRS",
+      "name": "BIS Compulsory Registration Scheme (CRS, Scheme-II)",
+      "authority": "Bureau of Indian Standards",
+      "description": "Registration scheme for electronic and IT goods and certain other products notified by the Government, under which manufacturers register with BIS after testing against the applicable Indian Standard.",
+      "url": "https://www.bis.gov.in/"
+    },
+    {
+      "id": "bis-hallmarking",
+      "scheme": "BIS-Hallmarking",
+      "name": "BIS Hallmarking",
+      "authority": "Bureau of Indian Standards",
+      "description": "Certification of purity/fineness of precious metal articles, primarily gold and silver jewellery and artefacts.",
+      "url": "https://www.bis.gov.in/"
+    }
+  ],
+  "standardCertifications": [
+    { "standardId": "is-10322-5-3", "certificationId": "bis-crs", "applicability": "indexed-listed", "evidence": "Demo index records LED luminaires for road and street lighting (IS 10322 Part 5/Sec 3) as a product category notified under the Compulsory Registration Scheme." },
+    { "standardId": "is-16102-1", "certificationId": "bis-crs", "applicability": "indexed-listed", "evidence": "Demo index records self-ballasted LED lamps (IS 16102 Part 1) as notified under CRS." },
+    { "standardId": "is-16103-1", "certificationId": "bis-crs", "applicability": "indexed-listed", "evidence": "Demo index records LED modules (IS 16103 Part 1) as notified under CRS." },
+    { "standardId": "is-15885-2-13", "certificationId": "bis-crs", "applicability": "indexed-listed", "evidence": "Demo index records LED control gear (IS 15885 Part 2/Sec 13) as notified under CRS." },
+    { "standardId": "is-13252-1", "certificationId": "bis-crs", "applicability": "indexed-listed", "evidence": "Demo index records IT equipment safety (IS 13252 Part 1) as a core CRS category." },
+    { "standardId": "is-616", "certificationId": "bis-crs", "applicability": "indexed-listed", "evidence": "Demo index records audio/video apparatus (IS 616) as notified under CRS." },
+    { "standardId": "is-16046-2", "certificationId": "bis-crs", "applicability": "indexed-listed", "evidence": "Demo index records lithium-ion cells/batteries (IS 16046 Part 2) as notified under CRS." },
+    { "standardId": "is-14286", "certificationId": "bis-crs", "applicability": "indexed-listed", "evidence": "Demo index records crystalline silicon PV modules (IS 14286) as notified under CRS for solar photovoltaic systems." },
+    { "standardId": "is-iec-61730-1", "certificationId": "bis-crs", "applicability": "indexed-listed", "evidence": "Demo index records PV module safety (IS/IEC 61730) as notified under CRS." },
+    { "standardId": "is-16221-2", "certificationId": "bis-crs", "applicability": "indexed-listed", "evidence": "Demo index records PV inverters (IS 16221 Part 2) as notified under CRS." },
+    { "standardId": "is-16270", "certificationId": "bis-crs", "applicability": "indexed-listed", "evidence": "Demo index records utility-interconnected PV inverter islanding test (IS 16270) alongside IS 16221 under CRS." },
+
+    { "standardId": "is-269", "certificationId": "bis-isi", "applicability": "indexed-mandatory", "evidence": "Demo index records ordinary Portland cement (IS 269) as under compulsory BIS certification." },
+    { "standardId": "is-2062", "certificationId": "bis-isi", "applicability": "indexed-mandatory", "evidence": "Demo index records structural steel (IS 2062) as under compulsory BIS certification." },
+    { "standardId": "is-1786", "certificationId": "bis-isi", "applicability": "indexed-mandatory", "evidence": "Demo index records TMT reinforcement bars (IS 1786) as under compulsory BIS certification." },
+    { "standardId": "is-13779", "certificationId": "bis-isi", "applicability": "indexed-mandatory", "evidence": "Demo index records AC static watthour meters (IS 13779) as under compulsory BIS certification." },
+    { "standardId": "is-1180-1", "certificationId": "bis-isi", "applicability": "indexed-mandatory", "evidence": "Demo index records distribution transformers (IS 1180 Part 1) as under compulsory BIS certification." },
+    { "standardId": "is-14543", "certificationId": "bis-isi", "applicability": "indexed-mandatory", "evidence": "Demo index records packaged drinking water (IS 14543) as under compulsory BIS certification." },
+    { "standardId": "is-694", "certificationId": "bis-isi", "applicability": "indexed-listed", "evidence": "Demo index records PVC insulated cables (IS 694) as covered by a Quality Control Order for electrical wires and cables." },
+    { "standardId": "is-1554-1", "certificationId": "bis-isi", "applicability": "indexed-listed", "evidence": "Demo index records PVC heavy-duty cables (IS 1554 Part 1) as covered by a Quality Control Order for electrical wires and cables." },
+    { "standardId": "is-7098-1", "certificationId": "bis-isi", "applicability": "indexed-listed", "evidence": "Demo index records XLPE cables (IS 7098 Part 1) as covered by a Quality Control Order for electrical wires and cables." },
+    { "standardId": "is-1293", "certificationId": "bis-isi", "applicability": "indexed-listed", "evidence": "Demo index records plugs and socket-outlets (IS 1293) as covered by a Quality Control Order for electrical accessories." },
+    { "standardId": "is-12615", "certificationId": "bis-isi", "applicability": "indexed-voluntary", "evidence": "Demo index records IE-class induction motors (IS 12615) as eligible for voluntary ISI certification; mandatory status not recorded in this index." },
+    { "standardId": "is-8034", "certificationId": "bis-isi", "applicability": "indexed-voluntary", "evidence": "Demo index records submersible pumpsets (IS 8034) as eligible for voluntary ISI certification; mandatory status not recorded in this index." },
+    { "standardId": "is-4985", "certificationId": "bis-isi", "applicability": "indexed-voluntary", "evidence": "Demo index records uPVC pipes (IS 4985) as eligible for voluntary ISI certification; mandatory status not recorded in this index." },
+    { "standardId": "is-3312", "certificationId": "bis-isi", "applicability": "indexed-voluntary", "evidence": "Demo index records steel shelving cabinets (IS 3312) as eligible for voluntary ISI certification." },
+    { "standardId": "is-1417", "certificationId": "bis-hallmarking", "applicability": "indexed-mandatory", "evidence": "Demo index records gold jewellery fineness (IS 1417) as the basis for mandatory hallmarking of gold jewellery in notified districts." }
+  ]
+}
