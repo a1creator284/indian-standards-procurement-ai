@@ -7,7 +7,7 @@
 [![Smart India Hackathon 2026](https://img.shields.io/badge/Smart%20India%20Hackathon-2026-0b5394)](https://www.sih.gov.in/)
 [![Problem Statement](https://img.shields.io/badge/Problem%20Statement-SIH26108-1f6feb)](#smart-india-hackathon-2026--sih26108)
 [![Stack](https://img.shields.io/badge/stack-React%2019%20%C2%B7%20TypeScript%20%C2%B7%20Vite-3178c6)](#technology-stack)
-[![Tests](https://img.shields.io/badge/vitest-54%20tests%20passing-2f9e44)](#testing)
+[![Tests](https://img.shields.io/badge/vitest-53%20tests%20passing-2f9e44)](#testing)
 
 **🚀 [Live Demo](https://indian-standards-procurement-ai.vercel.app/)** · **[GitHub Repository](https://github.com/rajaryan1111/indian-standards-procurement-ai)**
 
