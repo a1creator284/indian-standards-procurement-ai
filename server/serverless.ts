@@ -10,17 +10,9 @@ export default async function handler(req: IncomingMessage & { body?: unknown },
     const apiRes = await router.handle(apiReq);
     writeNodeResponse(res, apiRes);
   } catch (err: unknown) {
-    const e = err as { message?: string; stack?: string };
-    console.error('[serverless-error]', e);
+    console.error('[serverless-error]', err);
     res.statusCode = 500;
     res.setHeader('Content-Type', 'application/json; charset=utf-8');
-    res.end(
-      JSON.stringify({
-        error: 'Serverless Function Error',
-        message: e?.message ?? String(err),
-        stack: e?.stack,
-        url: req.url,
-      }),
-    );
+    res.end(JSON.stringify({ error: 'Internal Server Error' }));
   }
 }
