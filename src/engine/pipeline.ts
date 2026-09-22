@@ -227,13 +227,25 @@ function describeProduct(requirements: AnalysisResult['requirements'], original:
 
 function matchesProductConcept(standard: AnalysisResult['recommendations'][number]['standard'], ...parts: Array<string | undefined>): boolean {
   const queryText = parts.filter(Boolean).join(' ');
-  const queryConcepts = new Set(matchConcepts(queryText).map((c) => c.id));
-  const documentConcepts = new Set(
-    matchConcepts(standard.title + ' ' + standard.productTypes.join(' ')).map((c) => c.id),
-  );
-  if ([...queryConcepts].some((c) => documentConcepts.has(c))) return true;
+  const queryProductConcepts = matchConcepts(queryText)
+    .filter((c) => c.category === 'product')
+    .map((c) => c.id);
+  const documentProductConcepts = matchConcepts(
+    standard.title + ' ' + standard.productTypes.join(' '),
+  )
+    .filter((c) => c.category === 'product')
+    .map((c) => c.id);
 
+  // A primary product standard must share an explicitly indexed product concept
+  // with the requested product. Material/sector concepts such as "structural steel"
+  // are deliberately excluded from this gate.
+  if (queryProductConcepts.some((id) => documentProductConcepts.includes(id))) return true;
+
+  // Exact product-type/title phrase matching is a safe secondary gate.
   const q = queryText.toLowerCase();
-  const productFields = [standard.title, ...standard.productTypes].map((x) => x.toLowerCase());
-  return productFields.some((field) => field.length >= 5 && q.includes(field));
+  const productFields = [standard.title, ...standard.productTypes]
+    .map((x) => x.toLowerCase().trim())
+    .filter((x) => x.length >= 5);
+
+  return productFields.some((field) => q.includes(field));
 }
