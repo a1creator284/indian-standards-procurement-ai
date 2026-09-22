@@ -48,5 +48,13 @@ describe('Steel Almirah Tender Analysis', () => {
     expect(result.recommendations.length).toBeGreaterThan(0);
     expect(result.recommendations[0].standard.number).toBe('IS 3312');
     expect(result.recommendations[0].confidence.total).toBeGreaterThanOrEqual(60);
+
+    // Product-focused queries must not promote generic material/test overlaps.
+    const primaryNumbers = result.recommendations.map((r) => r.standard.number);
+    expect(primaryNumbers).toContain('IS 3312');
+    expect(primaryNumbers).not.toContain('IS 12288');
+    expect(primaryNumbers).not.toContain('IS 2713');
+    expect(primaryNumbers).not.toContain('IS 3489');
+    expect(primaryNumbers).not.toContain('IS 2329');
   });
 });
