@@ -31,12 +31,27 @@ export class DemoLLMProvider implements LLMProvider {
       const reqOverlap = jaccardOverlap(rTokens, dTokens);
       const sharedConcepts = [...qConcepts].filter((c) => dConcepts.has(c));
       const conceptScore = qConcepts.size ? sharedConcepts.length / qConcepts.size : 0;
-      const productHit = standard.productTypes.some((p) => query.toLowerCase().includes(p.toLowerCase().split(' ')[0]));
+      const queryProductConcepts = new Set(
+        [...matchConcepts(query)]
+          .filter((c) => c.category === 'product')
+          .map((c) => c.id),
+      );
+      const documentProductConcepts = new Set(
+        [...matchConcepts(standard.title + ' ' + standard.productTypes.join(' '))]
+          .filter((c) => c.category === 'product')
+          .map((c) => c.id),
+      );
+      const productConceptHit = [...queryProductConcepts].some((id) => documentProductConcepts.has(id));
+      const exactProductHit = standard.productTypes.some((p) => {
+        const phrase = p.toLowerCase().trim();
+        return phrase.length >= 5 && query.toLowerCase().includes(phrase);
+      });
+      const productHit = productConceptHit || exactProductHit;
 
       const score = clamp(0.5 * semanticScore + 0.2 * conceptScore + 0.15 * lexical + 0.1 * reqOverlap + (productHit ? 0.05 : 0));
       const reasons: string[] = [];
       if (sharedConcepts.length) reasons.push(`Shares domain concepts: ${sharedConcepts.slice(0, 4).join(', ')}`);
-      if (productHit) reasons.push('Product type in indexed metadata matches the input');
+      if (productHit) reasons.push('Product concept in indexed metadata matches the input');
       if (lexical > 0.05) reasons.push('Lexical overlap between input and indexed scope/keywords');
       return { standardId: standard.id, score, reasons };
     });
