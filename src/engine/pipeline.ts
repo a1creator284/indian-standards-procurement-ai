@@ -2,7 +2,7 @@ import { AI_DISCLAIMER, type AnalysisResult, type InputSource, type Recommendati
 import type { AIProviders } from './providers/types';
 import type { StandardsRepository } from './repository/types';
 import { cleanText } from './text/clean';
-import { normalizeQuery } from './language/detect';
+import { normalizeQuery, matchConcepts } from './language/detect';
 import { extractRequirements, mergeRequirements } from './extraction/requirements';
 import { retrieveCandidates } from './retrieval/retrieve';
 import { rerankCandidates } from './ranking/rerank';
