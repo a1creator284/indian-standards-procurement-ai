@@ -7,7 +7,7 @@
 [![Stack](https://img.shields.io/badge/stack-React%2019%20%C2%B7%20TypeScript%20%C2%B7%20Vite-3178c6)](#technology-stack)
 [![Tests](https://img.shields.io/badge/vitest-54%20tests%20passing-2f9e44)](#testing)
 
-**Live demo:** https://indian-standards-procurement-7madbaymw.vercel.app/
+**🚀 [Live Demo](https://indian-standards-procurement-ai.vercel.app/)** · **[GitHub Repository](https://github.com/a1creator284/indian-standards-procurement-ai)**
 
 ---
 
