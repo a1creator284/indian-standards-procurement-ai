@@ -84,8 +84,27 @@ export async function analyze(req: AnalyzeRequest, deps: EngineDeps): Promise<An
 
   // 5. Primary selection + expansion
   t0 = performance.now();
-  let primaries = ranked.filter((r) => r.confidence.total >= PRIMARY_THRESHOLD && r.standard.revisionStatus !== 'superseded').slice(0, MAX_PRIMARY);
-  if (!primaries.length && ranked.length && ranked[0].confidence.total >= 25) primaries = ranked.slice(0, 1);
+
+  // For product-focused procurement queries, a standard must match the requested
+  // product concept before it can become a primary recommendation. This prevents
+  // generic material/installation concepts (e.g. "steel", "installation") from
+  // promoting unrelated standards such as pipes or electrical conduits.
+  const productRequirements = requirements.filter((r) => r.category === 'product');
+  const primaryPool =
+    productRequirements.length > 0
+      ? ranked.filter((r) => productRequirements.some((rq) => matchesProductConcept(r.standard, rq.text, rq.entity)))
+      : ranked;
+
+  let primaries = primaryPool
+    .filter((r) => r.confidence.total >= PRIMARY_THRESHOLD && r.standard.revisionStatus !== 'superseded')
+    .slice(0, MAX_PRIMARY);
+
+  // If the dataset has no product-concept match at all, return no primary match
+  // rather than presenting an unrelated standard with a misleading confidence.
+  if (!productRequirements.length && !primaries.length && ranked.length && ranked[0].confidence.total >= 25) {
+    primaries = ranked.slice(0, 1);
+  }
+
   const { byStandard, related: relatedMap } = await expandRelationships(primaries.map((p) => p.standard), repo);
   const allStandards = [...primaries.map((p) => p.standard), ...relatedMap.values()];
   const certifications = await findCertifications(allStandards, repo);
@@ -203,4 +222,18 @@ function describeProduct(requirements: AnalysisResult['requirements'], original:
   if (products.length) return products[0];
   const firstLine = original.split('\n')[0].trim();
   return firstLine.length > 80 ? `${firstLine.slice(0, 77)}…` : firstLine || 'Procurement item';
+}
+
+
+function matchesProductConcept(standard: AnalysisResult['recommendations'][number]['standard'], ...parts: Array<string | undefined>): boolean {
+  const queryText = parts.filter(Boolean).join(' ');
+  const queryConcepts = new Set(matchConcepts(queryText).map((c) => c.id));
+  const documentConcepts = new Set(
+    matchConcepts(standard.title + ' ' + standard.productTypes.join(' ')).map((c) => c.id),
+  );
+  if ([...queryConcepts].some((c) => documentConcepts.has(c))) return true;
+
+  const q = queryText.toLowerCase();
+  const productFields = [standard.title, ...standard.productTypes].map((x) => x.toLowerCase());
+  return productFields.some((field) => field.length >= 5 && q.includes(field));
 }
