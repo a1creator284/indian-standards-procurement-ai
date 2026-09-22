@@ -1,5 +1,7 @@
 # IS Copilot — AI-Powered Indian Standards Intelligence for Procurement
 
+[![CI](https://github.com/rajaryan1111/indian-standards-procurement-ai/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/rajaryan1111/indian-standards-procurement-ai/actions/workflows/ci.yml)
+
 > An AI-assisted recommendation engine that reads an unstructured procurement specification and identifies potentially applicable Indian Standards, with explainable confidence, evidence and gap analysis.
 
 [![Smart India Hackathon 2026](https://img.shields.io/badge/Smart%20India%20Hackathon-2026-0b5394)](https://www.sih.gov.in/)
